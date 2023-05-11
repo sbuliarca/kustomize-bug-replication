@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: test-shared
+  labels:
+    app.kubernetes.io/name: test
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: test-shared
+  serviceName: test-shared-headless
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: test-shared
+    spec:
+      affinity:
+        podAffinity:
+        nodeAffinity:
+      containers:
+        - name: test
+          image: alpine
