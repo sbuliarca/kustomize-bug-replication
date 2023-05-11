@@ -12,3 +12,5 @@ patches:
         value: "test"
     target: {} # All resources
 
+  - path: environment-vars.yaml
+  - path: resources.yaml
